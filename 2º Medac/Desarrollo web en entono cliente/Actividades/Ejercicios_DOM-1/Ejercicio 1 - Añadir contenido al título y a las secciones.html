@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Añadir contenido al título</title>
+</head>
+<body>
+    <h1 id="titulo">Título: </h1>
+    <h2 id="seccion1">Sección 1:</h2>
+    <h2 id="seccion2">Sección 2: </h2>
+    <hr>
+    <br>
+    <form>
+        <h4>Introduce el título: </h4>
+        <!--Para darle tamaño al textarea se usan cols y rows -->
+        <textarea cols="50" rows="5" id="campoTitulo" placeholder="Título"></textarea>
+        <br>
+        <h4>Introduce la sección 1: </h4>
+        <textarea cols="50" rows="5" id="campoSeccion1" placeholder="Primera sección"></textarea>
+        <br>
+        <h4>Introduce la sección 2: </h4>
+        <textarea cols="50" rows="5" id="campoSeccion2" placeholder="Segunda sección"></textarea>
+        <br><br>
+        <!--Hacemos un botón de tipo reset para que lo que escribamos al enviarlo se borre y podamos seguir.-->
+        <button type="reset" style="width: 200px; height: 80px; background-color: rgba(0, 0, 255, 0.212);" onclick="rellenarInformacion()">Rellenar información</button>
+    </form>
+
+    <script>
+        function rellenarInformacion(){
+            //para imprimir
+            
+            var cuadroTitulo=document.getElementById("campoTitulo").value;
+            var nuevoNodoTitulo = document.createTextNode(" "+cuadroTitulo); 
+            var objetoTitulo = document.getElementById("titulo");
+            objetoTitulo.appendChild(nuevoNodoTitulo);
+
+            var cuadroSeccion1=document.getElementById("campoSeccion1").value;
+            var nuevoNodoSeccion1 = document.createTextNode(" "+cuadroSeccion1); 
+            var objetoSeccion1 = document.getElementById("seccion1");
+            objetoSeccion1.appendChild(nuevoNodoSeccion1);
+
+            var cuadroSeccion2=document.getElementById("campoSeccion2").value;
+            var nuevoNodoSeccion2 = document.createTextNode(" "+cuadroSeccion2); 
+            var objetoSeccion2 = document.getElementById("seccion2");
+            objetoSeccion2.appendChild(nuevoNodoSeccion2);
+            
+        }
+    </script>
+</body>
+</html>

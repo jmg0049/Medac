@@ -1,0 +1,51 @@
+<!--Añadir los datos de las nuevas filas partiendo de una fila cabecera-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <br>
+    <h1 style="text-align: center;">Añade casillas a la tabla</h1>
+    <table border align="center" style="width: 40%;">
+        <thead>
+            <th>Alumno</th>
+            <th>Calificación</th>
+        </thead>
+        <tbody id="cuerpo" style="text-align: center;">
+           
+        </tbody>
+    </table>
+    <br><br>
+    <form align=center>
+        <h4>Nombre del alumno:</h4><textarea cols="40" rows="2" placeholder="Nombre" id="dato1"></textarea> 
+        <h4>Calificación: </h4><textarea cols="40" rows="2" placeholder="Nota" id="dato2"></textarea> <br><br>
+        <input type="reset" value="Añadir elemento" onclick="añadeElementos()">    
+    </form>
+
+    <script>
+       function añadeElementos() {
+        // Obtén los datos del nombre del alumno y la calificación
+        var nombre = document.getElementById("dato1").value;
+        var calificacion = document.getElementById("dato2").value;
+
+        // Obtén la referencia al cuerpo de la tabla
+        var cuerpoTabla = document.getElementById("cuerpo");
+
+        // Crea una nueva fila y celdas para el nombre y la calificación
+        var fila = cuerpoTabla.insertRow();
+        var celdaNombre = fila.insertCell(0);
+        var celdaCalificacion = fila.insertCell(1);
+
+        // Establece el contenido de las celdas con los datos del formulario
+        celdaNombre.innerHTML = nombre;
+        celdaCalificacion.innerHTML = calificacion;
+
+        // Limpia los campos del formulario
+        document.getElementById("dato1").value = "";
+        document.getElementById("dato2").value = "";
+    }
+    </script>
+</body>
+</html>

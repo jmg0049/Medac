@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Añadir títulos de distintos niveles</title>
+</head>
+<body style="background-color: beige;">
+    <div style="background-color: rgba(2, 2, 5, 0.418);">
+        <h1 style="text-align: center;">Crea un título y dos secciones.</h1>
+    </div>
+    
+    <hr>
+    <div id="div1">
+
+    </div>
+
+    <form>
+        <h4>Introduce el título: </h4>
+        <!--Para darle tamaño al textarea se usan cols y rows -->
+        <textarea cols="50" rows="3" id="campoTitulo" placeholder="Título"></textarea>
+        <br>
+        <h4>Introduce la sección 1: </h4>
+        <textarea cols="50" rows="3" id="campoSeccion1" placeholder="Primera sección"></textarea>
+        <br>
+        <h4>Introduce la sección 2: </h4>
+        <textarea cols="50" rows="3" id="campoSeccion2" placeholder="Segunda sección"></textarea>
+        <br><br>
+        <!--Hacemos un botón de tipo reset para que lo que escribamos al enviarlo se borre y podamos seguir.-->
+        <button type="reset" style="width: 100px; height: 40px; background-color: rgba(0, 0, 255, 0.212);" onclick="rellenarInformacion()">Rellenar</button>
+    </form>
+
+    <script>
+        function rellenarInformacion() {
+            var titulo = document.getElementById("campoTitulo").value;//cogemos el valor del textarea "Título"
+            var seccion1 = document.getElementById("campoSeccion1").value;//lo mismo con el de la 1º sección y 2º
+            var seccion2 = document.getElementById("campoSeccion2").value;
+
+            var tituloElement = document.createElement("h2");//crea el h2 para el título
+            tituloElement.textContent = titulo;//operación
+
+            var seccion1Element = document.createElement("p");//crea un <p></p> para las secciones
+            seccion1Element.textContent = seccion1;//operación
+            var seccion2Element = document.createElement("p");
+            seccion2Element.textContent = seccion2;
+            
+            var div1 = document.getElementById("div1");//busca el div1
+            div1.appendChild(tituloElement);//lleva los elementos dentro
+            div1.appendChild(seccion1Element);
+            div1.appendChild(seccion2Element);
+        }
+    </script>
+</body>
+</html>

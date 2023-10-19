@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Añadir títulos de distintos niveles</title>
+</head>
+<body style="background-color: beige;">
+    <div style="background-color: rgba(2, 2, 5, 0.418);">
+        <h1 style="text-align: center;">Crea un título y dos secciones.</h1>
+    </div>
+    
+    <hr>
+    <div id="div1">
+
+    </div>
+
+    <form>
+        <h4>Introduce el título: </h4>
+        <!--Para darle tamaño al textarea se usan cols y rows -->
+        <textarea cols="50" rows="2" id="campoTitulo" placeholder="Título"></textarea>
+        <br>
+        <h4>Introduce la sección 1: </h4>
+        <textarea cols="50" rows="2" id="campoSeccion1" placeholder="Primera sección"></textarea>
+        <br>
+        <h3>Introduce los párrafos de la primera sección: </h3>
+        <textarea cols="50" rows="2" id="parrafo1" placeholder="Párrafos primera sección"></textarea>
+        <br>
+        <h4>Introduce la sección 2: </h4>
+        <textarea cols="50" rows="2" id="campoSeccion2" placeholder="Segunda sección"></textarea>
+        <br>
+        <h3>Introduce los párrafos de la segunda sección: </h3>
+        <textarea cols="50" rows="2" id="parrafo2" placeholder="Párrafos segunda sección"></textarea>
+        <br>
+        <br><br>
+        <!--Hacemos un botón de tipo reset para que lo que escribamos al enviarlo se borre y podamos seguir.-->
+        <button type="reset" style="width: 100px; height: 40px; background-color: rgba(0, 0, 255, 0.212);" onclick="rellenarInformacion()">Rellenar</button>
+    </form>
+
+    <script>
+        function rellenarInformacion() {
+            //Declaro las variables del título, las secciones y su contenido
+            var title = document.getElementById("campoTitulo").value;//Recoge el valor del textarea correspondiente a title
+            var sec1 = document.getElementById("campoSeccion1").value;//Recoge el valor del textarea correspondiente a sección 1.
+            var par1 = document.getElementById("parrafo1").value;//Recoge el valor del textarea correspondiente a párrafo 1.
+            var sec2 = document.getElementById("campoSeccion2").value;//Recoge el valor del textarea correspondiente a sección 2.
+            var par2 = document.getElementById("parrafo2").value;//Recoge el valor del textarea correspondiente a párrafo 2.
+            
+            var elementoTITULO = document.createElement("h1");//crea un h1 para el título
+            elementoTITULO.textContent = title;//título
+            var elementoSEC1 = document.createElement("h2");//crea un h2 para la sección 1 
+            elementoSEC1.textContent = sec1;//título de la sección
+            var elementoPAR1 = document.createElement("p");//crea el <p></p>
+            elementoPAR1.textContent = par1;//contenido
+            var elementoSEC2 = document.createElement("h2");//crea un h2 para la sección 2
+            elementoSEC2.textContent = sec2;//título de la sección
+            var elementoPAR2 = document.createElement("p");//crea el <p></p>
+            elementoPAR2.textContent = par2;//contenido
+
+            var div1 = document.getElementById("div1");//identifica el div1 y lleva el contenido allí
+            div1.appendChild(elementoTITULO);
+            div1.appendChild(elementoSEC1);
+            div1.appendChild(elementoPAR1);
+            div1.appendChild(elementoSEC2);
+            div1.appendChild(elementoPAR2);
+
+            /*getElementById = identificar donde está ese elemento
+            .value           = recoger sus valores
+            document         = referente al documento
+            createElement    = crea el elemento en el HTML
+            textContent      = introduce los cambios
+            appendChild      = agrega los nodos*/
+        }
+    </script>
+</body>
+</html>
